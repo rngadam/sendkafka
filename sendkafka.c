@@ -56,6 +56,8 @@ int main (int argc, char **argv) {
 	partition = 0;
 
 	signal(SIGINT, stop);
+	// see: https://github.com/edenhill/librdkafka/issues/2
+	signal(SIGPIPE, SIG_IGN);
 
 	/*
 	 * Producer
