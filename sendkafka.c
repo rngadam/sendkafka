@@ -71,7 +71,7 @@ int main (int argc, char **argv) {
 		exit(1);
 	}
 
-	fprintf(stderr, "%% Type stuff and hit enter to send\n");
+	//fprintf(stderr, "%% Type stuff and hit enter to send\n");
 	while (run && (fgets(buf, sizeof(buf), stdin))) {
 		int len = strlen(buf);
 		char *opbuf = malloc(len + 1);
@@ -79,8 +79,8 @@ int main (int argc, char **argv) {
 
 		/* Send/Produce message. */
 		rd_kafka_produce(rk, topic, partition, RD_KAFKA_OP_F_FREE, opbuf, len);
-		fprintf(stderr, "%% Sent %i bytes to topic "
-			"%s partition %i\n", len, topic, partition);
+		//fprintf(stderr, "%% Sent %i bytes to topic "
+		//	"%s partition %i\n", len, topic, partition);
 		sendcnt++;
 	}
 
